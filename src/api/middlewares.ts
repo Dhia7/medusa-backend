@@ -43,22 +43,5 @@ export default defineMiddlewares({
         ),
       ],
     },
-    {
-      matcher: "/admin/brands",
-      method: ["GET"],
-      middlewares: [
-        validateAndTransformQuery(
-          GetBrandsSchema,
-          {
-            defaults: [
-              "id",
-              "name",
-              "products.*",
-            ],
-            isList: true,
-          }
-        ),
-      ],
-    }
   ],
 })
