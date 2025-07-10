@@ -11,6 +11,9 @@ export default async function mongoConnectionLoader({
   container,
   options,
 }: LoaderOptions<ModuleOptions>) {
+  if (!options) {
+    throw new Error("Options are required for mongoConnectionLoader.");
+  }
   if (!options.connection_url) {
     throw new Error(`[MONGO MDOULE]: connection_url option is required.`)
   }
