@@ -25,6 +25,9 @@ const createPostStep = createStep(
   async (post, { container }) => {
     const blogModuleService: BlogModuleService = container.resolve(BLOG_MODULE)
 
+    if (!post) {
+      throw new Error("Post is undefined.");
+    }
     await blogModuleService.deletePosts(post.id)
   }
 )
